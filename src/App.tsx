@@ -1,5 +1,10 @@
+import { Wrapper } from "./ui/base";
+
 const App = () => {
-  return <div></div>
-}
+  return (
+    <Wrapper>
+    </Wrapper>
+  );
+};
 
 export default App;
