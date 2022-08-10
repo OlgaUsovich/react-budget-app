@@ -1,24 +1,27 @@
 import { ICurrencyOption } from "../../types/types";
 import Select from "react-select";
-import { customStyles } from "./styles";
-import { useState } from "react";
-
+import { useContext, useState } from "react";
+import { Currency } from "../../config/currency";
+import { CurrencyContext } from "../../context";
 
 export const CustomSelect = () => {
-  const [currency, setCurrency] = useState<ICurrencyOption>({value: "USD", label: "$"});
+  const { setCurrency } = useContext(CurrencyContext);
+  const [currencyOption, setCurrencyOption] = useState<ICurrencyOption>({ value: Currency.USD, label: "USD" });
 
   const handleSelect = (option: ICurrencyOption | null): void => {
-    if (option){
-        setCurrency(option);
+    if (option) {
+      setCurrencyOption(option);
+      setCurrency(option.value);
     }
   };
 
-
   const options: ICurrencyOption[] = [
-    {value: "USD", label: "$"},
-    {value: "EUR", label: "€"},
-    {value: "GBR", label: "£"},
+    { value: Currency.USD, label: "USD" },
+    { value: Currency.EUR, label: "EUR" },
+    { value: Currency.GBR, label: "GBR" },
   ];
 
-  return <Select onChange={handleSelect} value={currency} options={options} styles={customStyles} isSearchable={false} isMulti={false} />;
+  return (
+    <Select onChange={handleSelect} value={currencyOption} options={options} isSearchable={false} isMulti={false} />
+  );
 };

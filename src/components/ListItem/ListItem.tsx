@@ -4,16 +4,15 @@ import { Badge } from "../Badge/Badge";
 
 interface IProps {
   name: string;
-  currency: string;
   cost: number;
 }
 
-export const ListItem = ({ name, cost, currency }: IProps) => {
+export const ListItem = ({ name, cost }: IProps) => {
   return (
     <StyledListItem>
       <Name>{name}</Name>
       <StyledDiv>
-        <Badge currency={currency} cost={cost} />
+        <Badge cost={cost} />
         <StyledButton>
           <Close />
         </StyledButton>
