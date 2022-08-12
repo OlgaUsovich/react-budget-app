@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import { Budget, CustomSelect, Expenses, Form, Remaining, Spent, Title } from "./components";
 
-import { CurrencyContext } from "./context";
+import { CurrencyContext, ExpensesContext } from "./context";
+import { ICurrencyContext } from "./context/CurrencyContext/CurrencyContext";
+import { IExpensesContext } from "./types";
 import { StyledHeader, TitleWrapper, Wrapper } from "./ui/base";
 
 const App = () => {
-  const { currency } = useContext(CurrencyContext);
+  const { currency } = useContext<ICurrencyContext>(CurrencyContext);
+  const { expenses } = useContext<IExpensesContext>(ExpensesContext);
+
+  const spent: number = expenses.reduce((acc, expense) => acc + expense.cost, 0)
 
   return (
     <Wrapper>
@@ -16,10 +21,10 @@ const App = () => {
         </TitleWrapper>
         <Budget text={`Budget: ${currency}3000`} />
         <Remaining text={`Remaining: ${currency}2000`} />
-        <Spent text={`Spent so far: ${currency}1000`} />
+        <Spent currency={currency} spent={spent} />
       </StyledHeader>
       <Expenses title="Expenses" />
-      {/* <Form /> */}
+      <Form />
     </Wrapper>
   );
 };

@@ -1,7 +1,7 @@
 import { createContext, FC, ReactNode, useState } from "react";
 import { Currency } from "../../config";
 
-interface ICurrencyContext {
+export interface ICurrencyContext {
     currency: string;
     setCurrency: (value: Currency) => void;
 }

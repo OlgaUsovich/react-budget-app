@@ -1,29 +1,16 @@
-import { ChangeEvent, useContext, useState } from "react";
+import { useContext } from "react";
 import { ExpensesContext } from "../../context";
 import { ListItem } from "../ListItem/ListItem";
+import { EmptyText, StyledList } from "./styles";
+
 
 export const ExpensesList = () => {
-  const { expenses, setExpenses } = useContext(ExpensesContext);
-
-  const [newExpense, setNewExpense] = useState("");
-
-  const handleNewExpense = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewExpense(event.target.value);
-    setExpenses({
-        id: 9,
-        body: event.target.value,
-        cost: 1,
-    })
-  }
-
+  const { expenses, deleteExpense } = useContext(ExpensesContext);
   return (
-    <>
-      {/* <input type="text" value={newExpense} onChange={handleNewExpense} /> */}
-      <ul>
+    expenses.length > 0 ? <StyledList>
         {expenses.map((expense) => {
-          return <ListItem key={expense.id} name={expense.body} cost={expense.cost}/>;
+          return <ListItem deleteExpense={deleteExpense} key={expense.id} expense={expense}/>;
         })}
-      </ul>
-    </>
+      </StyledList> : <EmptyText>Oooops 🙈</EmptyText>
   );
 };

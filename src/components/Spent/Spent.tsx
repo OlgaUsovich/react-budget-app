@@ -1,13 +1,14 @@
 import { StyledSpent, StyledSpan } from "./styles";
 
 interface IProps {
-  text: string;
+  currency: string;
+  spent: number;
 }
 
-export const Spent = ({ text }: IProps) => {
+export const Spent = ({currency, spent}: any) => {
   return (
     <StyledSpent>
-      <StyledSpan>{text}</StyledSpan>
+      <StyledSpan>Spent so far: {currency}{spent}</StyledSpan>
     </StyledSpent>
   );
 };

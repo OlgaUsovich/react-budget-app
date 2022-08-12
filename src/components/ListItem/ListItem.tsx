@@ -1,19 +1,20 @@
 import { StyledListItem, Name, StyledDiv, StyledButton } from "./styles";
 import { ReactComponent as Close } from "../../assetes/icons/close.svg";
 import { Badge } from "../Badge/Badge";
+import { IExpense } from "../../types";
 
 interface IProps {
-  name: string;
-  cost: number;
+  expense: IExpense;
+  deleteExpense: (expense: IExpense) => void;
 }
 
-export const ListItem = ({ name, cost }: IProps) => {
+export const ListItem = ({ expense, deleteExpense }: IProps) => {
   return (
-    <StyledListItem>
-      <Name>{name}</Name>
+    <StyledListItem id={expense.id}>
+      <Name>{expense.body}</Name>
       <StyledDiv>
-        <Badge cost={cost} />
-        <StyledButton>
+        <Badge cost={expense.cost} />
+        <StyledButton onClick={() => deleteExpense(expense)}>
           <Close />
         </StyledButton>
       </StyledDiv>

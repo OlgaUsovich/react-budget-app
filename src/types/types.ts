@@ -9,3 +9,15 @@ export interface ICurrencyOption {
     body: string;
     cost: number;
   }
+
+  export interface IExpense {
+    id: string;
+    body: string;
+    cost: number;
+  }
+
+  export interface IExpensesContext {
+    expenses: IExpense[];
+    setExpenses: (expense: IExpense) => void;
+    deleteExpense: (expense: IExpense) => void;
+  }
