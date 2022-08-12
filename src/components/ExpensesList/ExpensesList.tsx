@@ -18,11 +18,10 @@ export const ExpensesList = () => {
 
   return (
     <>
-      <input type="text" value={newExpense} onChange={handleNewExpense} />
-      <ListItem name={"shopping"} cost={100} />
+      {/* <input type="text" value={newExpense} onChange={handleNewExpense} /> */}
       <ul>
         {expenses.map((expense) => {
-          return <li key={expense.id}>{expense.body}</li>;
+          return <ListItem key={expense.id} name={expense.body} cost={expense.cost}/>;
         })}
       </ul>
     </>

@@ -20,8 +20,3 @@ export const StyledHeader = styled.header`
   gap: 20px;
 `;
 
-export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;

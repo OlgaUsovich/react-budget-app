@@ -1,7 +1,7 @@
-import { ICurrencyOption } from "../../types/types";
+import { ICurrencyOption } from "../../types";
 import Select from "react-select";
 import { useContext, useState } from "react";
-import { Currency } from "../../config/currency";
+import { Currency } from "../../config";
 import { CurrencyContext } from "../../context";
 
 export const CustomSelect = () => {

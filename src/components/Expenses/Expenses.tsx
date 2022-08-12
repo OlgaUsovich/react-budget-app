@@ -1,6 +1,4 @@
-import { ExpensesList } from "../ExpensesList/ExpensesList";
-import { Input } from "../Input/Input";
-import { Title } from "../Title/Title";
+import { ExpensesList, Input, Title } from "../../components"
 import { StyledExpenses } from "./styles";
 
 interface IProps {
@@ -11,7 +9,7 @@ export const Expenses = ({ title }: IProps) => {
   return (
     <StyledExpenses>
       <Title text={title} />
-      <Input placeholder="search ..." />
+      <Input placeholder="search ..." type="text" />
       <ExpensesList />
     </StyledExpenses>
   );

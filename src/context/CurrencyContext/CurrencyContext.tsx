@@ -1,5 +1,5 @@
 import { createContext, FC, ReactNode, useState } from "react";
-import { Currency } from "../../config/currency";
+import { Currency } from "../../config";
 
 interface ICurrencyContext {
     currency: string;
