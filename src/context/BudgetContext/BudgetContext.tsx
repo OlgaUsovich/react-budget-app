@@ -1,27 +1,17 @@
 import { createContext, FC, ReactNode, useState } from "react";
-
-interface IBudget {
-    budget: number;
-}
-
-interface IBudgetContext {
-    budget: IBudget;
-    setBudget: (budget: IBudget) => void;
-}
+import { IBudgetContext } from "../../types";
 
 export const BudgetContext = createContext<IBudgetContext>({
-    budget: {budget: 0},
-    setBudget: (value: IBudget) => {}
+    budget: 0,
+    setBudget: (value: number) => {}
 });
 
 const useBudgetContext = () => {
     const [budgetContext, setBudgetContext] = useState<IBudgetContext>(
         () => {
             return {
-                budget: {
-                    budget: 0
-                },
-                setBudget: (value: IBudget) => {
+                budget: 0,
+                setBudget: (value: number) => {
                     setBudgetContext(context => ({
                         ...context,
                         budget: value
