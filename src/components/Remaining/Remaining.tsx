@@ -1,13 +1,17 @@
 import { StyledRemaining, StyledSpan } from "./styles";
 
 interface IProps {
-  text: string;
+  currency: string;
+  remaining: number;
 }
 
-export const Remaining = ({ text }: IProps) => {
+export const Remaining = ({ currency, remaining }: IProps) => {
   return (
-    <StyledRemaining>
-      <StyledSpan>{text}</StyledSpan>
+    <StyledRemaining remaining={remaining}>
+      <StyledSpan>
+        {remaining > 0 ? "Remaining:" : "Overspending by"} {currency}
+        {remaining.toString().replace("-", "")}
+      </StyledSpan>
     </StyledRemaining>
   );
 };

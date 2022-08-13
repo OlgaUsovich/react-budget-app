@@ -12,6 +12,8 @@ const App = () => {
   const { budget } = useContext<IBudgetContext>(BudgetContext);
 
   const spent: number = expenses.reduce((acc, expense) => acc + expense.cost, 0)
+  const remaining: number = expenses.reduce((acc, expense) => acc - expense.cost, budget)
+
 
   return (
     <Wrapper>
@@ -21,7 +23,7 @@ const App = () => {
           <CustomSelect />
         </TitleWrapper>
         <Budget currency={currency} budget={budget} />
-        <Remaining text={`Remaining: ${currency}2000`} />
+        <Remaining currency={currency} remaining={remaining} />
         <Spent currency={currency} spent={spent} />
       </StyledHeader>
       <Expenses title="Expenses" />
