@@ -6,6 +6,15 @@ export const Wrapper = styled.div`
   gap: 30px;
   margin: 30px auto;
   width: 335px;
+
+  @media (min-width: 768px) {
+    width: 760px;
+  }
+
+  @media (min-width: 1224px) {
+    width: 1200px;
+  }
+
 `;
 
 export const TitleWrapper = styled.div`

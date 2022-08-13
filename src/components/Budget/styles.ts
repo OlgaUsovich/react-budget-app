@@ -28,7 +28,7 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledInput = styled.input`
-  width: 153px;
+  width: 80%;
   font-family: "Inter", "sans-serif";
   font-weight: 500;
   font-size: 20px;
