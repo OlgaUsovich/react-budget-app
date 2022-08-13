@@ -5,7 +5,7 @@ interface IProps {
   spent: number;
 }
 
-export const Spent = ({currency, spent}: any) => {
+export const Spent = ({currency, spent}: IProps) => {
   return (
     <StyledSpent>
       <StyledSpan>Spent so far: {currency}{spent}</StyledSpan>

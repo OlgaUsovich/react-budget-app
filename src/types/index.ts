@@ -1,3 +1,3 @@
-import { ICurrencyOption, FormType, IExpense, IExpensesContext } from "./types";
+import { ICurrencyOption, FormType, IExpense, IExpensesContext, IBudgetContext } from "./types";
 
-export type { ICurrencyOption, FormType, IExpense, IExpensesContext };
+export type { ICurrencyOption, FormType, IExpense, IExpensesContext, IBudgetContext };

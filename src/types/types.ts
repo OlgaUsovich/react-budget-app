@@ -21,3 +21,8 @@ export interface ICurrencyOption {
     setExpenses: (expense: IExpense) => void;
     deleteExpense: (expense: IExpense) => void;
   }
+
+export interface IBudgetContext {
+    budget: number;
+    setBudget: (budget: number) => void;
+}
