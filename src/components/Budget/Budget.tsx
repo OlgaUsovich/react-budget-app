@@ -12,7 +12,7 @@ interface IProps {
 export const Budget = ({ currency, budget }: IProps) => {
   const { setBudget } = useContext<IBudgetContext>(BudgetContext);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
-  const [inputOptions, clearInput] = useInput("");
+  const budgetInput = useInput("");
 
 
   const handleEdit = () => {
@@ -21,9 +21,8 @@ export const Budget = ({ currency, budget }: IProps) => {
 
   const handleSave = () => {
     setIsEditMode(false);
-    const currentBudget = Number(inputOptions.value);
+    const currentBudget = Number(budgetInput.value);
     setBudget(currentBudget);
-    clearInput();
 
   };
 
@@ -31,7 +30,7 @@ export const Budget = ({ currency, budget }: IProps) => {
     <StyledBudget>
       {isEditMode ? (
         <>
-          <StyledInput placeholder="Enter  budget ..." {...inputOptions}/>
+          <StyledInput placeholder="Enter  budget ..." {...budgetInput}/>
           <Button onClick={handleSave}>Save</Button>
         </>
       ) : (

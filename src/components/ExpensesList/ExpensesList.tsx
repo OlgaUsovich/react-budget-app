@@ -1,14 +1,19 @@
 import { useContext } from "react";
 import { ExpensesContext } from "../../context";
+import { IExpense } from "../../types";
 import { ListItem } from "../ListItem/ListItem";
 import { EmptyText, StyledList } from "./styles";
 
+interface IProps {
+  expensesToRender: IExpense[];
+}
 
-export const ExpensesList = () => {
-  const { expenses, deleteExpense } = useContext(ExpensesContext);
+
+export const ExpensesList = ({expensesToRender}: IProps) => {
+  const { deleteExpense } = useContext(ExpensesContext);
   return (
-    expenses.length > 0 ? <StyledList>
-        {expenses.map((expense) => {
+    expensesToRender.length > 0 ? <StyledList>
+        {expensesToRender.map((expense) => {
           return <ListItem deleteExpense={deleteExpense} key={expense.id} expense={expense}/>;
         })}
       </StyledList> : <EmptyText>Oooops 🙈</EmptyText>

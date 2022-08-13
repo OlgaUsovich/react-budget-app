@@ -5,18 +5,14 @@ interface IInputOptions {
     onChange: ChangeEventHandler<HTMLInputElement>;
   }
 
-type UseInputHookOutput = [IInputOptions, () => void];
+export const useInput = (initialValue: string): IInputOptions => {
+  const [value, setValue] = useState<string>(initialValue);
 
-export const useInput = (initialValue: string): UseInputHookOutput => {
-  const [inputValue, setInputValue] = useState<string>(initialValue);
-  const handleInputChange: ChangeEventHandler<HTMLInputElement> = ({
+  const onChange: ChangeEventHandler<HTMLInputElement> = ({
     target,
   }) => {
-    setInputValue(target.value);
-  };
-  const clearInput = () => {
-    setInputValue("");
+    setValue(target.value);
   };
 
-  return [{ value: inputValue, onChange: handleInputChange }, clearInput];
+  return { value, onChange };
 };

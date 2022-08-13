@@ -1,4 +1,4 @@
-import { ExpensesContext } from "./ExpensesContext";
+import { ExpensesContext, useExpensesValue } from "./ExpensesContext";
 import { ExpensesProvider } from "./ExpensesContext";
 
-export { ExpensesContext, ExpensesProvider };
+export { ExpensesContext, ExpensesProvider, useExpensesValue };
