@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { BudgetContext } from "../../context";
 import { IBudgetContext } from "../../types";
 import { Button, StyledBudget, StyledInput, StyledSpan } from "./styles";
+import { useInput } from "../../hooks";
 
 interface IProps {
   currency: string;
@@ -11,6 +12,8 @@ interface IProps {
 export const Budget = ({ currency, budget }: IProps) => {
   const { setBudget } = useContext<IBudgetContext>(BudgetContext);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
+  const [inputOptions, clearInput] = useInput("");
+
 
   const handleEdit = () => {
     setIsEditMode(true);
@@ -18,7 +21,9 @@ export const Budget = ({ currency, budget }: IProps) => {
 
   const handleSave = () => {
     setIsEditMode(false);
-    setBudget(444);
+    const currentBudget = Number(inputOptions.value);
+    setBudget(currentBudget);
+    clearInput();
 
   };
 
@@ -26,7 +31,7 @@ export const Budget = ({ currency, budget }: IProps) => {
     <StyledBudget>
       {isEditMode ? (
         <>
-          <StyledInput placeholder="Enter  budget ..." />
+          <StyledInput placeholder="Enter  budget ..." {...inputOptions}/>
           <Button onClick={handleSave}>Save</Button>
         </>
       ) : (
