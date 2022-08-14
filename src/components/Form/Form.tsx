@@ -1,23 +1,10 @@
 import { StyledForm, StytedInput, Error} from "./styles";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { FormType } from "../../types";
-import { Button, Input, Title } from "../../components";
+import { Button, Title } from "../../components";
 import { useContext } from "react";
 import { ExpensesContext } from "../../context";
 import { v4 as uuidv4 } from "uuid";
-
-// const Controller = ({ register, name, rules, render }: any) => {
-//   const props = register(name, rules);
-
-//   return render({
-//     onchange: (e: any) =>
-//       props.onChange({
-//         target: { name, value: e.target.value },
-//       }),
-//     name: props.name,
-//     onBlur: props.onBlur,
-//   });
-// };
 
 export const Form = () => {
   const { setExpenses } = useContext(ExpensesContext);
@@ -25,7 +12,7 @@ export const Form = () => {
     register,
     handleSubmit,
     reset,
-    control,
+    // control,
 
     formState: { errors },
   } = useForm<FormType>();
