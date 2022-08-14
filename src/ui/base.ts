@@ -8,11 +8,11 @@ export const Wrapper = styled.div`
   width: 335px;
 
   @media (min-width: 768px) {
-    width: 760px;
+    width: 700px;
   }
 
   @media (min-width: 1224px) {
-    width: 1200px;
+    width: 1000px;
   }
 
 `;
