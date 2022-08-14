@@ -1,5 +1,5 @@
-import { StyledForm, StytedInput } from "./styles";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { StyledForm, StytedInput, Error} from "./styles";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { FormType } from "../../types";
 import { Button, Input, Title } from "../../components";
 import { useContext } from "react";
@@ -25,6 +25,8 @@ export const Form = () => {
     register,
     handleSubmit,
     reset,
+    control,
+
     formState: { errors },
   } = useForm<FormType>();
 
@@ -42,17 +44,10 @@ export const Form = () => {
       <Title text="Add Expense" />
 
       {/* <Controller
-        {...{
-          register,
-          name: "body",
-          placeholder: "enter name ...",
-          type: "text",
-          rules: {
-            required: "Please enter the name",
-            maxLength: { value: 15, message: "Max lenth is 15" },
-          },
-          render: (props: any) => <Input {...props} placeholder="enter name ..." type="text" />,
-        }}
+        name="body"
+        control={control}
+        rules={{  required: "Please enter the name", maxLength: { value: 15, message: "Max lenth is 15" } }}
+        render={({ field }) => <Input placeholder="enter name ..." type="text" {...field} />}
       /> */}
 
       <StytedInput
@@ -63,7 +58,15 @@ export const Form = () => {
           maxLength: { value: 15, message: "Max lenth is 15" },
         })}
       />
-      {errors.body && <span>{errors.body.message}</span>}
+      {errors.body && <Error>{errors.body.message}</Error>}
+
+      {/* <Controller
+        name="cost"
+        control={control}
+        rules={{  required: "Please enter the cost", maxLength: { value: 5, message: "Max lenth is 5" } }}
+        render={({ field }) => <Input placeholder="enter cost ..." type="number" {...field} />}
+      /> */}
+
       <StytedInput
         placeholder="enter cost ..."
         type="number"
@@ -73,7 +76,7 @@ export const Form = () => {
           valueAsNumber: true,
         })}
       />
-      {errors.cost && <span>{errors.cost.message}</span>}
+      {errors.cost && <Error>{errors.cost.message}</Error>}
       <Button />
     </StyledForm>
   );
