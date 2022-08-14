@@ -1,10 +1,14 @@
 import { StyledForm, StytedInput, Error} from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FormType } from "../../types";
 import { Button, Title } from "../../components";
 import { useContext } from "react";
 import { ExpensesContext } from "../../context";
 import { v4 as uuidv4 } from "uuid";
+
+type FormType = {
+  body: string;
+  cost: number;
+}
 
 export const Form = () => {
   const { setExpenses } = useContext(ExpensesContext);

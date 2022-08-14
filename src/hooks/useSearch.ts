@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import { ExpensesContext } from "../context";
-import { IExpense, IExpensesContext } from "../types";
+import { ExpensesContext, IExpensesContext } from "../context";
+import { IExpense } from "../types";
 
 export const useSearch = () => {
   const { expenses } = useContext<IExpensesContext>(ExpensesContext);

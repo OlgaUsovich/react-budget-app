@@ -1,5 +1,5 @@
 import { StyledListItem, Name, StyledDiv, StyledButton } from "./styles";
-import { ReactComponent as Close } from "../../assetes/icons/close.svg";
+import { ReactComponent as Close } from "../../assets/icons/close.svg";
 import { Badge } from "../Badge/Badge";
 import { IExpense } from "../../types";
 

@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import { BudgetContext } from "../../context";
-import { IBudgetContext } from "../../types";
+import { BudgetContext, IBudgetContext } from "../../context";
 import { Button, StyledBudget, StyledInput, StyledSpan } from "./styles";
 import { useInput } from "../../hooks";
 

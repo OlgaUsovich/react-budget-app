@@ -5,24 +5,8 @@ export interface ICurrencyOption {
     readonly label: keyof typeof Currency;
   }
 
-  export type FormType = {
-    body: string;
-    cost: number;
-  }
-
   export interface IExpense {
     id: string;
     body: string;
     cost: number;
   }
-
-  export interface IExpensesContext {
-    expenses: IExpense[];
-    setExpenses: (expense: IExpense) => void;
-    deleteExpense: (expense: IExpense) => void;
-  }
-
-export interface IBudgetContext {
-    budget: number;
-    setBudget: (budget: number) => void;
-}

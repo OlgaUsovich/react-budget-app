@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import { Budget, CustomSelect, Expenses, Form, Remaining, Spent, Title } from "./components";
 
-import { BudgetContext, CurrencyContext, ExpensesContext } from "./context";
+import { BudgetContext, CurrencyContext, ExpensesContext, IBudgetContext, IExpensesContext } from "./context";
 import { ICurrencyContext } from "./context/CurrencyContext/CurrencyContext";
-import { IBudgetContext, IExpensesContext } from "./types";
 import { StyledHeader, TitleWrapper, Wrapper } from "./ui/base";
 
 const App = () => {
