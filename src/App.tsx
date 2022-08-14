@@ -6,13 +6,6 @@ import { ICurrencyContext } from "./context/CurrencyContext/CurrencyContext";
 import { StyledHeader, TitleWrapper, Wrapper } from "./ui/base";
 
 const App = () => {
-  const { currency } = useContext<ICurrencyContext>(CurrencyContext);
-  const { expenses } = useContext<IExpensesContext>(ExpensesContext);
-  const { budget } = useContext<IBudgetContext>(BudgetContext);
-
-  const spent: number = expenses.reduce((acc, expense) => acc + expense.cost, 0)
-  const remaining: number = expenses.reduce((acc, expense) => acc - expense.cost, budget)
-
 
   return (
     <Wrapper>
@@ -21,11 +14,11 @@ const App = () => {
           <Title text="Budget App" />
           <CustomSelect />
         </TitleWrapper>
-        <Budget currency={currency} budget={budget} />
-        <Remaining currency={currency} remaining={remaining} />
-        <Spent currency={currency} spent={spent} />
+        <Budget />
+        <Remaining />
+        <Spent />
       </StyledHeader>
-      <Expenses title="Expenses" />
+      <Expenses />
       <Form />
     </Wrapper>
   );

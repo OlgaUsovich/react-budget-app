@@ -1,4 +1,5 @@
-import { CurrencyContext } from "./CurrencyContext";
+import { CurrencyContext, ICurrencyContext } from "./CurrencyContext";
 import { CurrencyProvider } from "./CurrencyContext";
 
 export { CurrencyContext, CurrencyProvider };
+export type { ICurrencyContext };

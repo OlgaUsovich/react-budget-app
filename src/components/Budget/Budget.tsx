@@ -1,15 +1,11 @@
 import { useContext, useState } from "react";
-import { BudgetContext, IBudgetContext } from "../../context";
+import { BudgetContext, CurrencyContext, IBudgetContext, ICurrencyContext } from "../../context";
 import { Button, StyledBudget, StyledInput, StyledSpan } from "./styles";
 import { useInput } from "../../hooks";
 
-interface IProps {
-  currency: string;
-  budget: number;
-}
-
-export const Budget = ({ currency, budget }: IProps) => {
-  const { setBudget } = useContext<IBudgetContext>(BudgetContext);
+export const Budget = () => {
+  const { budget, setBudget } = useContext<IBudgetContext>(BudgetContext);
+  const { currency } = useContext<ICurrencyContext>(CurrencyContext);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const budgetInput = useInput("");
 

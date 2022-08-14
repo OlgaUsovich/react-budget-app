@@ -3,11 +3,7 @@ import { ExpensesList, Input, Title } from "../../components";
 import { useDebounce, useInput, useSearch } from "../../hooks";
 import { StyledExpenses } from "./styles";
 
-interface IProps {
-  title: string;
-}
-
-export const Expenses = ({ title }: IProps) => {
+export const Expenses = () => {
   const search = useInput("");
   const debounceValue = useDebounce(search.value, 500);
   const {expensesToRender,  searchExpenses} = useSearch();
@@ -18,7 +14,7 @@ export const Expenses = ({ title }: IProps) => {
 
   return (
     <StyledExpenses>
-      <Title text={title} />
+      <Title text="Expenses" />
       <Input placeholder="search ..." type="text" {...search} />
       <ExpensesList expensesToRender={expensesToRender} />
     </StyledExpenses>

@@ -8,13 +8,11 @@ interface IProps {
   expensesToRender: IExpense[];
 }
 
-
 export const ExpensesList = ({expensesToRender}: IProps) => {
-  const { deleteExpense } = useContext(ExpensesContext);
   return (
     expensesToRender.length > 0 ? <StyledList>
         {expensesToRender.map((expense) => {
-          return <ListItem deleteExpense={deleteExpense} key={expense.id} expense={expense}/>;
+          return <ListItem key={expense.id} expense={expense}/>;
         })}
       </StyledList> : <EmptyText>Oooops 🙈</EmptyText>
   );
