@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { ExpensesContext } from "../../context";
 import { IExpense } from "../../types";
 import { ListItem } from "../ListItem/ListItem";
 import { EmptyText, StyledList } from "./styles";
