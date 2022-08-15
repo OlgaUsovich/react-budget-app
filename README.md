@@ -48,4 +48,4 @@
 
 Olga Usovich - [@linkedin](https://www.linkedin.com/in/volha-usovich-758119205) - olya.usovich.17@mail.ru
 
-Project Link: [https://github.com/OlgaUsovich/react-tips-calculator.git](https://github.com/OlgaUsovich/react-tips-calculator.git)
+Project Link: [https://github.com/OlgaUsovich/react-budget-app.git](https://github.com/OlgaUsovich/react-budget-app.git)
